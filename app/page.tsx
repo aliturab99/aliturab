@@ -1,11 +1,20 @@
-import HeroSection from "./components/HeroSection";
+import About from "@/components/main/About";
+import Encryption from "@/components/main/Encryption";
+import Hero from "@/components/main/Hero";
+import Projects from "@/components/main/Projects";
+import Skills from "@/components/main/Skills";
+import Image from "next/image";
 
 export default function Home() {
   return (
-    <main>
-      <main className="flex min-h-screen flex-col items-center justify-between p-24">
-        <HeroSection  />
-      </main>
+    <main className="h-full w-full">
+      <div className="flex flex-col gap-20">
+        <Hero />
+        <Skills />
+        <About />
+        <Encryption />
+        {/* <Projects /> */}
+      </div>
     </main>
   );
 }
