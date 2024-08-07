@@ -31,8 +31,8 @@ const About = () => {
         style={{ opacity, y: translateY }}
         className="flex flex-col items-center text-center"
       >
-        <p className="text-lg mb-6 max-w-2xl">
-          Hi, I'm Ali Turab, a passionate Full Stack Developer with a strong background in both frontend and backend technologies. With experience in various frameworks and tools, I strive to create innovative and efficient solutions for web applications. I'm passionate about creating cutting-edge, pixel-perfect interfaces and delivering beautifully designed, intuitive user experiences. I am equally dedicated to developing optimized, high-performance backends that ensure robust and fast operations.
+        <p className="text-lg mb-6">
+          Hi, I&apos;m Ali Turab, a passionate Full Stack Developer with a strong background in both frontend and backend technologies. With experience in various frameworks and tools, I strive to create innovative and efficient solutions for web applications. I&apos;m passionate about creating cutting-edge, pixel-perfect interfaces and delivering beautifully designed, intuitive user experiences. I am equally dedicated to developing optimized, high-performance backends that ensure robust and fast operations.
         </p>
       </motion.div>
     </section>

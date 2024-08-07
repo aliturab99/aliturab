@@ -24,18 +24,14 @@ const HeroContent = () => {
       className="flex flex-col md:flex-row items-center justify-center px-5 md:px-20 mt-40 w-full z-[20]"
     >
       <div className="h-full w-full flex flex-col gap-5 justify-center text-center md:text-start">
-        <motion.div
-          variants={slideInFromLeft(0.5)}
-          style={{ x: x2 }}
-          className="flex flex-col gap-6 mt-6 text-4xl md:text-6xl font-bold text-white max-w-[90%] md:max-w-[600px] w-auto h-auto"
+        <motion.p
+          variants={slideInFromLeft(0.8)}
+          style={{ x: x3 }}
+          className="text-lg text-gray-400 my-5 max-w-[600px]"
         >
-          <span>
-            <span className="text-sm">There <br /></span>
-            I'm
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500"> Ali Turab </span>
-            <span className="text-2xl md:text-3xl"> <br /> Full Stack Web Developer</span>
-          </span>
-        </motion.div>
+          I&apos;m a Full Stack Developer with experience in Website,
+          and Web Application.
+        </motion.p>
 
         <motion.p
           variants={slideInFromLeft(0.8)}
