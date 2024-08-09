@@ -102,17 +102,18 @@ const Navbar = () => {
             </div>
           </div>
 
-          <button
+          {/* <button
             onClick={handleResumeClick}
             className="bg-white hidden md:flex px-4 py-1 rounded-xl"
           >
             Resume
-          </button>
+          </button> */}
+          <a href="/SyedYawarAliTurab.pdf" download className="bg-white hidden md:flex px-4 py-1 rounded-xl">Resume</a>
         </div>
       </div>
 
       {/* Modal */}
-      {isModalOpen && (
+      {/* {isModalOpen && (
         <div className="fixed z-[999] inset-0 bg-black/50 flex items-center justify-center">
           <div className="bg-white p-8 rounded-lg w-80 md:w-96 relative">
             <button
@@ -126,7 +127,7 @@ const Navbar = () => {
             <a href="/SyedYawarAliTurab.pdf" download className="mt-4 inline-block bg-blue-500 text-white px-4 py-2 rounded-lg">Download Resume</a>
           </div>
         </div>
-      )}
+      )} */}
     </>
   );
 };
