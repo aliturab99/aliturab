@@ -21,7 +21,7 @@ const Footer = () => {
                     <a className="flex items-center">
                         <RxDiscordLogo /> <span className="text-[15px] ml-[6px]">Discord</span>    
                     </a>
-                    <a className="flex items-center">
+                    <a className="flex items-center" href="https://x.com/yawaraliturab" target="_blank">
                         <FaTwitter /> <span className="text-[15px] ml-[6px]">Twitter</span>    
                     </a>
                     <a className="flex items-center" href="https://www.linkedin.com/in/ali-turab-naqvi/" target="_blank">

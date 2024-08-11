@@ -31,7 +31,7 @@ const About = () => {
   return (
     <section
       id="about"
-      className="relative w-full h-auto flex flex-col items-center justify-center pt-20 px-5 bg-gray-900 text-white"
+      className="relative w-full h-auto flex flex-col items-center justify-center pt-20 px-5 bg-gray-900 text-white animate-jump-in animate-once animate-ease-in-out"
     >
       <motion.div
         style={{ opacity, translateY }}
