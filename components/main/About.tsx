@@ -29,42 +29,61 @@ const About = () => {
   const translateY = useTransform(scrollY, [0, 300], [20, 0]);
 
   return (
-    <section
-      id="about"
-      className="relative w-full h-auto flex flex-col items-center justify-center pt-20 px-5 bg-gray-900 text-white animate-jump-in animate-once animate-ease-in-out"
-    >
-      <motion.div
-        style={{ opacity, translateY }}
-        className="flex justify-center text-center"
-      >
-        <div className='w-1/2'>
-          <motion.div
-            style={{ opacity }}
-            className='text-4xl font-bold text-center mb-6'
-          >
-            Who I Am?
-          </motion.div>
-          <motion.div
-            style={{ opacity }}
-            className='text-2xl text-gray-300 mb-8 text-center'
-          >
-            Problem Solver, Good Team Mate, and Self Learner
-          </motion.div>
-          <p className="text-lg">
-            Hi, I&apos;m Ali Turab, a passionate Full Stack Developer with a strong background in both frontend and backend technologies. With experience in various frameworks and tools, I strive to create innovative and efficient solutions for web applications. I&apos;m passionate about creating cutting-edge, pixel-perfect interfaces and delivering beautifully designed, intuitive user experiences. I am equally dedicated to developing optimized, high-performance backends that ensure robust and fast operations.
-          </p>
-        </div>
-        <div className='w-1/2 h-auto flex items-center justify-center'>
-          {animationData && (
-            <Lottie
-              animationData={animationData}
-              loop={true}
-              className="" // Adjust the size and margin as needed
+    <div className="flex h-screen items-center justify-center px-10">
+      <div className="w-1/2 md:w-full  bg-white shadow-xl rounded-3xl">
+        <div className="mt-10 flex justify-center mb-5 ">
+          <div className="relative w-48 h-48 overflow-hidden rounded-full">
+            <img
+              src="/p.jpg"
+              alt="Profile"
+              className="absolute inset-0 w-full h-full object-cover object-center transform scale-150"
             />
-          )}
+          </div>
         </div>
-      </motion.div>
-    </section>
+        <div className="flex justify-center px-5 ">
+          <div className="border-b-2 border-gray-500 w-full"></div>
+        </div>
+        <div className="flex justify-center text-center p-5">
+          <p className='w-[80%]'>Hi, I&apos;m Ali Turab, a passionate Full Stack Developer with a strong background in both frontend and backend technologies. With experience in various frameworks and tools, I strive to create innovative and efficient solutions for web applications. I&apos;m passionate about creating cutting-edge, pixel-perfect interfaces and delivering beautifully designed, intuitive user experiences. I am equally dedicated to developing optimized, high-performance backends that ensure robust and fast operations.</p>
+        </div>
+      </div>
+    </div>
+    // <section
+    //   id="about"
+    //   className="relative w-full h-auto flex flex-col items-center justify-center pt-20 px-5 bg-gray-900 text-white animate-jump-in animate-once animate-ease-in-out"
+    // >
+    //   <motion.div
+    //     style={{ opacity, translateY }}
+    //     className="flex justify-center text-center"
+    //   >
+    //     <div className='w-1/2'>
+    //       <motion.div
+    //         style={{ opacity }}
+    //         className='text-4xl font-bold text-center mb-6'
+    //       >
+    //         Who I Am?
+    //       </motion.div>
+    //       <motion.div
+    //         style={{ opacity }}
+    //         className='text-2xl text-gray-300 mb-8 text-center'
+    //       >
+    //         Problem Solver, Good Team Mate, and Self Learner
+    //       </motion.div>
+    //       <p className="text-lg">
+    //         Hi, I&apos;m Ali Turab, a passionate Full Stack Developer with a strong background in both frontend and backend technologies. With experience in various frameworks and tools, I strive to create innovative and efficient solutions for web applications. I&apos;m passionate about creating cutting-edge, pixel-perfect interfaces and delivering beautifully designed, intuitive user experiences. I am equally dedicated to developing optimized, high-performance backends that ensure robust and fast operations.
+    //       </p>
+    //     </div>
+    //     <div className='w-1/2 h-auto flex items-center justify-center'>
+    //       {animationData && (
+    //         <Lottie
+    //           animationData={animationData}
+    //           loop={true}
+    //           className="" // Adjust the size and margin as needed
+    //         />
+    //       )}
+    //     </div>
+    //   </motion.div>
+    // </section>
   );
 };
 
