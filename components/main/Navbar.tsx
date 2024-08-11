@@ -18,7 +18,7 @@ const Navbar = () => {
   return (
     <>
       {/* Mobile Navbar */}
-      <div className="w-full h-auto block md:hidden py-4 fixed top-0 shadow-lg shadow-[#2A0E61]/50 bg-[#ffffff30] backdrop-blur-md z-50 px-6">
+      <div className="w-full h-auto block md:hidden py-4 fixed top-0 shadow-lg shadow-[#2A0E61]/50 bg-[#ffffff30] backdrop-blur-md px-6">
         <div className="font-bold relative text-center text-2xl pt-1 text-gray-300">
           <p>Ali Turab</p>
           <motion.nav
