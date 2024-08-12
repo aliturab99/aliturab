@@ -29,9 +29,9 @@ const About = () => {
   const translateY = useTransform(scrollY, [0, 300], [20, 0]);
 
   return (
-    <div className="flex h-screen items-center justify-center px-10">
-      <div className="w-1/2 md:w-full  bg-white shadow-xl rounded-3xl">
-        <div className="mt-10 flex justify-center mb-5 ">
+    <div className="flex w-full md:w-auto md:h-screen items-center justify-center px-10">
+      <div className="w-full  bg-white shadow-xl rounded-3xl">
+        <div className="mt-10 flex justify-center mb-5 relative">
           <div className="relative w-48 h-48 overflow-hidden rounded-full">
             <img
               src="/p.jpg"
