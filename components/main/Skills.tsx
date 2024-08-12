@@ -41,8 +41,9 @@ const Skills = () => {
       </motion.div>
 
       <SkillText />
+      
 
-      <div className="flex flex-row justify-around flex-wrap md:mt-4 md:gap-5 items-center">
+      {/* <div className="flex flex-row justify-around flex-wrap md:mt-4 md:gap-5 items-center">
         {Skill_data.map((image, index) => (
           <motion.div
             key={index}
@@ -125,7 +126,7 @@ const Skills = () => {
             />
           </motion.div>
         ))}
-      </div>
+      </div> */}
     </section>
   );
 };

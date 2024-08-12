@@ -80,7 +80,7 @@ const Contact = () => {
                             </a>
                         </div>
                     </div>
-                    <div className="md:w-8/12 w-full mt-10 md:mt-0 md:pl-28 z-[998]">
+                    <div className="md:w-8/12 w-full mt-10 md:mt-0 md:pl-28 relative">
                         <div className="relative py-3 sm:max-w-xl sm:mx-auto">
                             <div
                                 className="absolute inset-0 bg-gradient-to-r from-indigo-700 to-purple-500 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl">
