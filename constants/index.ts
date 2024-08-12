@@ -209,6 +209,12 @@ export const Skill_data = [
       width: 80,
       height: 80,
     },
+    {
+      skill_name: "Django",
+      Image: "/django.png",
+      width: 140,
+      height: 60,
+    }
   ];
   
   export const Full_stack = [
@@ -239,19 +245,3 @@ export const Skill_data = [
     },
   
   ];
-  
-  
-  
-  export const Other_skill = [
-    {
-      skill_name: "Django",
-      Image: "/django.png",
-      width: 120,
-      height: 60,
-    },
-  ];
-  
-  
-  
-  
-  
