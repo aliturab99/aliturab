@@ -41,92 +41,42 @@ const Skills = () => {
       </motion.div>
 
       <SkillText />
-      
 
-      {/* <div className="flex flex-row justify-around flex-wrap md:mt-4 md:gap-5 items-center">
-        {Skill_data.map((image, index) => (
-          <motion.div
-            key={index}
-            style={{ x: xSkills }}
-            className="flex-shrink-0"
-          >
-            <SkillDataProvider
-              src={image.Image}
-              width={image.width}
-              height={image.height}
-              index={index}
-            />
-          </motion.div>
-        ))}
-      </div>
-
-      <div className="flex flex-row justify-around flex-wrap mt-4 gap-5 items-center">
+      <h2 className="text-white text-2xl my-5">Front-End Skills</h2>
+      <div className="flex flex-row flex-wrap justify-center md:gap-5 items-center">
         {Frontend_skill.map((image, index) => (
-          <motion.div
-            key={index}
-            style={{ x: xSkills }}
-            className="flex-shrink-0"
-          >
-            <SkillDataProvider
+          <SkillDataProvider
               src={image.Image}
               width={image.width}
               height={image.height}
               index={index}
-            />
-          </motion.div>
-        ))}
+              />
+            ))}
       </div>
 
-      <div className="flex flex-row justify-around flex-wrap mt-4 gap-gap-5 items-center">
+      <h2 className="text-white text-2xl my-5">Back-End Skills</h2>
+      <div className="flex flex-row flex-wrap justify-center md:gap-5 items-center">
         {Backend_skill.map((image, index) => (
-          <motion.div
-            key={index}
-            style={{ x: xSkills }}
-            className="flex-shrink-0"
-          >
-            <SkillDataProvider
-              src={image.Image}
-              width={image.width}
-              height={image.height}
-              index={index}
-            />
-          </motion.div>
+          <SkillDataProvider
+          src={image.Image}
+          width={image.width}
+          height={image.height}
+          index={index}
+          />
         ))}
       </div>
 
-      <div className="flex flex-row justify-around flex-wrap mt-4 gap-5 items-center">
+      <h2 className="text-white text-2xl my-5">Full Stack Skills</h2>
+      <div className="flex flex-row flex-wrap justify-center md:gap-5 items-center">
         {Full_stack.map((image, index) => (
-          <motion.div
-            key={index}
-            style={{ x: xSkills }}
-            className="flex-shrink-0"
-          >
             <SkillDataProvider
               src={image.Image}
               width={image.width}
               height={image.height}
               index={index}
             />
-          </motion.div>
         ))}
       </div>
-
-      <div className="flex flex-row justify-around flex-wrap mt-4 gap-5 items-center">
-        {Other_skill.map((image, index) => (
-          <motion.div
-            key={index}
-            style={{ x: xSkills }}
-            className="flex-shrink-0"
-          >
-            <SkillDataProvider
-              src={image.Image}
-              width={image.width}
-              height={image.height}
-              index={index}
-            />
-          </motion.div>
-        ))}
-      </div> */}
     </section>
   );
 };
