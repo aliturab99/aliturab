@@ -46,22 +46,22 @@ const Skills = () => {
       <div className="flex flex-row flex-wrap justify-center md:gap-5 items-center">
         {Frontend_skill.map((image, index) => (
           <SkillDataProvider
-              src={image.Image}
-              width={image.width}
-              height={image.height}
-              index={index}
-              />
-            ))}
+            src={image.Image}
+            width={image.width}
+            height={image.height}
+            index={index}
+          />
+        ))}
       </div>
 
       <h2 className="text-white text-2xl my-5">Back-End Skills</h2>
       <div className="flex flex-row flex-wrap justify-center md:gap-5 items-center">
         {Backend_skill.map((image, index) => (
           <SkillDataProvider
-          src={image.Image}
-          width={image.width}
-          height={image.height}
-          index={index}
+            src={image.Image}
+            width={image.width}
+            height={image.height}
+            index={index}
           />
         ))}
       </div>
@@ -69,12 +69,12 @@ const Skills = () => {
       <h2 className="text-white text-2xl my-5">Full Stack Skills</h2>
       <div className="flex flex-row flex-wrap justify-center md:gap-5 items-center">
         {Full_stack.map((image, index) => (
-            <SkillDataProvider
-              src={image.Image}
-              width={image.width}
-              height={image.height}
-              index={index}
-            />
+          <SkillDataProvider
+            src={image.Image}
+            width={image.width}
+            height={image.height}
+            index={index}
+          />
         ))}
       </div>
     </section>
