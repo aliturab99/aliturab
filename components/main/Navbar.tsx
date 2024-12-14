@@ -2,6 +2,11 @@
 import React, { useState } from "react";
 import { FiMenu } from "react-icons/fi";
 import { motion } from 'framer-motion';
+import { FaLinkedin, FaGithub } from "react-icons/fa";
+import Logo from '../../public/logo.png'
+import Image from 'next/image';
+
+
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,79 +22,28 @@ const Navbar = () => {
 
   return (
     <>
-      {/* Mobile Navbar */}
-      <div className="w-full h-auto block md:hidden py-4 fixed top-0 shadow-lg shadow-[#2A0E61]/50 bg-[#ffffff30] backdrop-blur-md px-6 z-[999]">
-        <div className="font-bold relative text-center text-2xl pt-1 text-gray-300">
-          <p>Ali Turab</p>
-          <motion.nav
-            initial={false}
-            animate={isOpen ? "open" : "closed"}
-            className="absolute top-2 right-0"
-          >
-            <motion.button
-              whileTap={{ scale: 0.97 }}
-              onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-300 focus:outline-none"
-            >
-              <FiMenu size={24} />
-            </motion.button>
-            <motion.ul
-              variants={{
-                open: {
-                  clipPath: "inset(0% 0% 0% 0% round 10px)",
-                  transition: {
-                    type: "spring",
-                    bounce: 0,
-                    duration: 0.7,
-                    delayChildren: 0.3,
-                    staggerChildren: 0.05
-                  }
-                },
-                closed: {
-                  clipPath: "inset(10% 50% 90% 50% round 10px)",
-                  transition: {
-                    type: "spring",
-                    bounce: 0,
-                    duration: 0.3
-                  }
-                }
-              }}
-              style={{ pointerEvents: isOpen ? "auto" : "none" }}
-              className="bg-slate-600 w-[200px] p-3 absolute right-0 mt-2 rounded-lg"
-            >
-              <motion.li variants={itemVariants} className="py-2">
-                <a href="#about" className="cursor-pointer text-lg">About me</a>
-              </motion.li>
-              <motion.li variants={itemVariants} className="py-2">
-                <a href="#skills" className="cursor-pointer text-lg">Skills</a>
-              </motion.li>
-              <motion.li variants={itemVariants} className="py-2">
-                <a href="#contact" className="cursor-pointer text-lg">Contact</a>
-              </motion.li>
-              <motion.li variants={itemVariants} className="py-2">
-                <a href="/SyedYawarAliTurab.pdf" download className="bg-white text-lg px-4 py-1 rounded-xl">Resume</a>
-              </motion.li>
-            </motion.ul>
-          </motion.nav>
-        </div>
-      </div>
-
-      {/* Desktop Navbar */}
-      <div className="w-full hidden md:flex h-auto py-4 fixed top-0 shadow-lg shadow-[#2A0E61]/50 bg-[#ffffff30] backdrop-blur-md z-50 px-10">
-        <div className="w-full h-full flex flex-row items-center justify-between">
-          <a href="#about-me">
-            <span className="font-bold text-md lg:text-xl text-gray-300">
-              Ali Turab
-            </span>
-          </a>
-          <div className="flex items-center gap-5">
-            <a href="#about" className="cursor-pointer text-sm lg:text-base text-gray-300">About me</a>
-            <a href="#skills" className="cursor-pointer text-sm lg:text-base text-gray-300">Skills</a>
-            <a href="#contact" className="cursor-pointer text-sm lg:text-base text-gray-300">Contact</a>
-            <a href="/SyedYawarAliTurab.pdf" download className="bg-white px-4 py-1 rounded-xl text-sm lg:text-base">Resume</a>
+      <nav className="top-0 absolute z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg bg-black bg-blueGray-800">
+        <div className="container px-4 mx-auto flex flex-col md:flex-row items-center justify-between">
+          <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start ">
+            <a href="/"><Image src={Logo} alt="Ali Turab" className=" w-[100] md:w-[200px] lg:w-[300px] h-[100px] object-cover" /> </a>
+          </div>
+          <div className=" flex flex-grow items-center lg:bg-opacity-0 lg:shadow-none bg-blueGray-800" id="example-collapse-navbar">
+            <ul className="hidden md:flex flex-row list-none lg:ml-auto items-center">
+              <li className="flex items-center">
+                <a className="text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold" href="https://www.linkedin.com/in/ali-turab-naqvi/" target="_blank"><FaLinkedin className="text-2xl" /></a>
+              </li>
+              <li className="flex items-center">
+                <a className="text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold" href="https://github.com/aliturab99" target="_blank"><FaGithub className="text-2xl" /></a>
+              </li>
+              <li className="flex items-center">
+                <a className="bg-white text-blueGray-700 active:bg-blueGray-50 text-xs font-bold uppercase px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3 ease-linear transition-all duration-150"  href="/SyedYawarAliTurab.pdf" download>
+                  Resume
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
-      </div>
+      </nav>
     </>
   );
 };
