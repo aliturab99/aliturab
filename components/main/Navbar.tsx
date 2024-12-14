@@ -22,7 +22,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="top-0 absolute z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg bg-black bg-blueGray-800">
+      <nav className="top-0 absolute z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg bg-blueGray-800">
         <div className="container px-4 mx-auto flex flex-col md:flex-row items-center justify-between">
           <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start ">
             <a href="/"><Image src={Logo} alt="Ali Turab" className=" w-[100] md:w-[200px] lg:w-[300px] h-[100px] object-cover" /> </a>
