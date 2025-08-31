@@ -1,89 +1,68 @@
 "use client";
-import React, { useEffect, useState } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import Lottie from 'lottie-react';
+import React from "react";
+import { motion } from "framer-motion";
+import { FiExternalLink } from "react-icons/fi";
+
 
 const About = () => {
-  const { scrollY } = useScroll();
-  const [animationData, setAnimationData] = useState(null);
-
-  useEffect(() => {
-    // Fetch the Lottie animation JSON data
-    const fetchAnimation = async () => {
-      try {
-        const response = await fetch(
-          "https://lottie.host/7d10fb81-dd1b-41ca-9f5b-30996a4ae7cf/kljVTaMvpf.json"
-        );
-        const data = await response.json();
-        setAnimationData(data);
-      } catch (error) {
-        console.error("Failed to load Lottie animation", error);
-      }
-    };
-
-    fetchAnimation();
-  }, []);
-
-  // Define the scroll-based transformations
-  const opacity = useTransform(scrollY, [0, 300], [0, 1]);
-  const translateY = useTransform(scrollY, [0, 300], [20, 0]);
-
   return (
-    <div className="flex w-full md:w-auto md:h-screen items-center justify-center px-10">
-      <div className="w-full  bg-white shadow-xl rounded-3xl">
-        <div className="mt-10 flex justify-center mb-5 relative">
-          <div className="relative w-48 h-48 overflow-hidden rounded-full">
-            <img
-              src="/p.jpg"
-              alt="Profile"
-              className="absolute inset-0 w-full h-full object-cover object-center transform scale-150"
-            />
-          </div>
-        </div>
-        <div className="flex justify-center px-5 ">
-          <div className="border-b-2 border-gray-500 w-full"></div>
-        </div>
-        <div className="flex justify-center text-center p-5">
-          <p className='w-[80%]'>Hi, I&apos;m Ali Turab, a passionate Full Stack Developer with a strong background in both frontend and backend technologies. With experience in various frameworks and tools, I strive to create innovative and efficient solutions for web applications. I&apos;m passionate about creating cutting-edge, pixel-perfect interfaces and delivering beautifully designed, intuitive user experiences. I am equally dedicated to developing optimized, high-performance backends that ensure robust and fast operations.</p>
+  <section className="w-full h-[100vh] flex flex-col md:flex-row items-center justify-center py-16 px-4 md:px-10 gap-10 md:gap-20">
+      {/* Left: Artistic Profile Image with Abstract Background */}
+      <div className="w-full md:w-1/2 flex justify-center items-center mb-10 md:mb-0">
+        <div className="relative w-56 h-56 md:w-80 md:h-80 flex items-center justify-center">
+          {/* Abstract brush-stroke background */}
+          <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-blue-100 via-purple-200 to-pink-100 blur-2xl scale-110 z-0"></div>
+          <img
+            src="/p2.png"
+            alt="Profile"
+            className="relative w-40 h-40 md:w-56 md:h-56 rounded-full object-cover shadow-xl border-4 border-white z-10"
+          />
         </div>
       </div>
-    </div>
-    // <section
-    //   id="about"
-    //   className="relative w-full h-auto flex flex-col items-center justify-center pt-20 px-5 bg-gray-900 text-white animate-jump-in animate-once animate-ease-in-out"
-    // >
-    //   <motion.div
-    //     style={{ opacity, translateY }}
-    //     className="flex justify-center text-center"
-    //   >
-    //     <div className='w-1/2'>
-    //       <motion.div
-    //         style={{ opacity }}
-    //         className='text-4xl font-bold text-center mb-6'
-    //       >
-    //         Who I Am?
-    //       </motion.div>
-    //       <motion.div
-    //         style={{ opacity }}
-    //         className='text-2xl text-gray-300 mb-8 text-center'
-    //       >
-    //         Problem Solver, Good Team Mate, and Self Learner
-    //       </motion.div>
-    //       <p className="text-lg">
-    //         Hi, I&apos;m Ali Turab, a passionate Full Stack Developer with a strong background in both frontend and backend technologies. With experience in various frameworks and tools, I strive to create innovative and efficient solutions for web applications. I&apos;m passionate about creating cutting-edge, pixel-perfect interfaces and delivering beautifully designed, intuitive user experiences. I am equally dedicated to developing optimized, high-performance backends that ensure robust and fast operations.
-    //       </p>
-    //     </div>
-    //     <div className='w-1/2 h-auto flex items-center justify-center'>
-    //       {animationData && (
-    //         <Lottie
-    //           animationData={animationData}
-    //           loop={true}
-    //           className="" // Adjust the size and margin as needed
-    //         />
-    //       )}
-    //     </div>
-    //   </motion.div>
-    // </section>
+      {/* Right: Text Content */}
+      <div className="w-full md:w-1/2 flex flex-col justify-center items-start md:items-start text-center md:text-left">
+        <motion.h2
+          initial={{ opacity: 0, x: 40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true }}
+          className="text-3xl md:text-5xl font-extrabold text-gray-900 mb-6 leading-tight"
+        >
+          Turning Vision Into Reality With Code And Design.
+        </motion.h2>
+        <motion.p
+          initial={{ opacity: 0, x: 40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+          viewport={{ once: true }}
+          className="text-lg md:text-xl text-gray-700 mb-6 font-medium"
+        >
+          Hi, I&apos;m Ali Turab, a Full Stack Developer skilled in React, Next.js, and Django. I build scalable web apps, craft beautiful user experiences, and deliver robust backend solutions. Let&apos;s create something amazing together!
+        </motion.p>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.4 }}
+          viewport={{ once: true }}
+          className="flex flex-col md:flex-row gap-4 mt-2 w-full md:w-auto justify-center md:justify-start"
+        >
+          <a
+            href="/SyedYawarAliTurab.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-7 py-3 rounded-xl bg-gray-900 text-white font-bold shadow hover:bg-gray-800 flex items-center gap-2 text-base md:text-lg transition-all duration-200"
+          >
+            Resume <FiExternalLink size={20} />
+          </a>
+          <a
+            href="#contact"
+            className="px-7 py-3 rounded-xl bg-blue-600 text-white font-bold shadow hover:bg-blue-700 text-base md:text-lg transition-all duration-200"
+          >
+            Contact
+          </a>
+        </motion.div>
+      </div>
+    </section>
   );
 };
 

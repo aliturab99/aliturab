@@ -1,40 +1,46 @@
 import React from "react";
-import {
-  RxDiscordLogo,
-  RxGithubLogo,
-  RxInstagramLogo,
-  RxTwitterLogo,
-  RxLinkedinLogo,
-} from "react-icons/rx";
-import { FaLinkedinIn, FaTwitter } from "react-icons/fa";
-
-import { FaYoutube } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 const Footer = () => {
-  return (
-    <div className="w-full h-full mt-5 bg-transparent text-gray-200 shadow-lg p-[15px] ">
-        <div className="w-full flex flex-col items-center justify-center m-auto">
-            <div className="flex mb-5 gap-5 z-[999]">
-                    <a className="flex items-center" href="https://github.com/aliturab99" target="_blank">
-                        <RxGithubLogo /> <span className="text-[15px] ml-[6px]">Github</span>    
-                    </a>
-                    <a className="flex items-center">
-                        <RxDiscordLogo /> <span className="text-[15px] ml-[6px]">Discord</span>    
-                    </a>
-                    <a className="flex items-center" href="https://x.com/yawaraliturab" target="_blank">
-                        <FaTwitter /> <span className="text-[15px] ml-[6px]">Twitter</span>    
-                    </a>
-                    <a className="flex items-center" href="https://www.linkedin.com/in/ali-turab-naqvi/" target="_blank">
-                        <FaLinkedinIn /> <span className="text-[15px] ml-[6px]">Linkedin</span>    
-                    </a>
-            </div>
+    const socialLinks = [
+        {
+            href: "https://github.com/aliturab99",
+            icon: <FaGithub />, label: "GitHub", color: "hover:text-gray-300"
+        },
+        {
+            href: "https://www.linkedin.com/in/ali-turab-naqvi/",
+            icon: <FaLinkedin />, label: "LinkedIn", color: "hover:text-blue-400"
+        },
+        {
+            href: "https://twitter.com/yawaraliturab",
+            icon: <FaTwitter />, label: "Twitter", color: "hover:text-blue-300"
+        },
+    ];
 
-            <div className="mb-[20px] text-[15px] text-center z-[999]">
-                &copy; All rights reserved by Ali Turab
+    return (
+        <footer className="w-full px-4 py-6 bg-black/70 backdrop-blur-md border-t border-gray-800 flex flex-col md:flex-row items-center justify-between gap-4 text-white">
+            <div className="text-sm text-center md:text-left opacity-80">
+                © 2025 Syed Yawar Ali Turab. All rights reserved.
             </div>
-        </div>
-    </div>
-  )
+            <div className="flex gap-6 items-center justify-center">
+                {socialLinks.map((link, idx) => (
+                    <a
+                        key={link.label}
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={link.label}
+                        className={`transition-all duration-200 text-xl opacity-80 hover:opacity-100 ${link.color}`}
+                        style={{ display: "flex" }}
+                    >
+                        <span className="inline-block hover:scale-110 transition-transform duration-200">
+                            {link.icon}
+                        </span>
+                    </a>
+                ))}
+            </div>
+        </footer>
+    );
 }
 
 export default Footer
