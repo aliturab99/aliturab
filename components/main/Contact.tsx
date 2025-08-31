@@ -28,85 +28,120 @@ const Contact = () => {
         fetchAnimation();
     }, []);
 
-    return (
-        <>
-            <section className="text-gray-600 body-font">
-                <div className="container flex flex-col md:flex-row lg:max-w-5xl w-full px-5 py-12 md:py-24 mx-auto section" id="contact-form">
-                    <div className="md:w-4/12 w-full text-center md:text-start">
-                        <h1 className="text-4xl text-white sm:text-4xl font-bold title-font mb-4">Contact Me</h1>
-                        <div className="mb-12 w-full">
-                            <div className="flex items-start">
-                                <div className="shrink-0">
-                                    <MdEmail size={25} className="rounded-md bg-teal-400-100 text-teal-700" />
-                                </div>
-                                <div className="ml-6 grow">
-                                    <p className="mb-2 font-bold">
-                                        Email
-                                    </p>
-                                    <p className="text-neutral-500 ">
-                                        syedyawaraliturab@gmail.com
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="mb-12 w-full">
-                            <div className="flex items-start">
-                                <div className="shrink-0">
-                                    <FaPhoneSquareAlt size={25} className="rounded-md bg-teal-400-100 text-teal-700" />
-                                </div>
-                                <div className="ml-6 grow">
-                                    <p className="mb-2 font-bold ">
-                                        Phone Number
-                                    </p>
-                                    <p className="text-neutral-500 ">
-                                        +92 323-215-9603
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+    // Form state and validation
+    type FormState = { name: string; email: string; message: string };
+    type FormErrors = { name?: string; email?: string; message?: string };
+    const [form, setForm] = useState<FormState>({ name: "", email: "", message: "" });
+    const [errors, setErrors] = useState<FormErrors>({});
+    const [submitted, setSubmitted] = useState(false);
 
-                        <p className="leading-relaxed text-xl text-gray-500 mt-8">
-                            Connect with us on social media:
-                        </p>
-                        <div className="w-full h-auto py-8 flex items-center justify-center gap-2 flex-wrap">
-                            <a href="https://www.linkedin.com/in/ali-turab-naqvi/" className="p-2 z-[999] rounded-lg flex items-center border border-gray-300 justify-center transition-all duration-500 hover:border-gray-100 hover:bg-gray-100">
-                                <FaLinkedinIn size={20} />
-                            </a>
-                            <a href="https://x.com/yawaraliturab" className="p-2 z-[999] rounded-lg flex items-center border border-gray-300 justify-center transition-all duration-500 hover:border-gray-100 hover:bg-gray-100">
-                                    <FaXTwitter size={20} />
-                            </a>
-                            <a href="https://github.com/aliturab99" className="p-2 z-[999] rounded-lg flex items-center border border-gray-300 justify-center transition-all duration-500 hover:border-gray-100 hover:bg-gray-100">
-                                    <FaGithub size={20} />
-                            </a>
-                        </div>
-                    </div>
-                    <div className="md:w-8/12 w-full mt-10 md:mt-0 md:pl-28 relative">
-                        <div className="relative py-3 sm:max-w-xl sm:mx-auto">
-                            <div
-                                className="absolute inset-0 bg-gradient-to-r from-indigo-700 to-purple-500 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl">
-                            </div>
-                            <div className="text-white relative px-4 py-10 bg-indigo-400 shadow-lg sm:rounded-3xl sm:p-20">
-                                <div className="text-center pb-6">
-                                    <h1 className="text-3xl">Leave a message for me!</h1>
-                                    <p className="text-gray-300">
-                                        Fill up the form below to send me a message.
-                                    </p>
-                                </div>
-                                <form action="" method="post" >
-                                    <input className="shadow mb-4 appearance-none border rounded w-full py-2 px-3 z-[999] text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="Name" name="name" />
-                                    <input className="shadow mb-4 appearance-none border rounded w-full py-2 px-3 z-[999] text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="email" placeholder="Email" name="email" />
-                                    <input className="shadow mb-4 appearance-none border rounded w-full py-2 px-3 z-[999] text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="Subject" name="_subject" />
-                                    <textarea className="shadow mb-4 min-h-0 appearance-none border rounded h-64 w-full py-2 z-[999] px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Type your message here..." name="message" style={{ height: "121px" }}></textarea>
-                                    <div className="flex justify-between">
-                                        <input className="shadow bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 z-[999] rounded focus:outline-none focus:shadow-outline" type="submit" value="Send ➤" />
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
+    const validate = (): FormErrors => {
+        const newErrors: FormErrors = {};
+        if (!form.name.trim()) newErrors.name = "Name is required.";
+        if (!form.email.trim()) newErrors.email = "Email is required.";
+        else if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(form.email)) newErrors.email = "Invalid email.";
+        if (!form.message.trim()) newErrors.message = "Message is required.";
+        return newErrors;
+    };
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        setForm({ ...form, [e.target.name]: e.target.value });
+    };
+
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        const newErrors = validate();
+        setErrors(newErrors);
+        if (Object.keys(newErrors).length === 0) {
+            setSubmitted(true);
+            setForm({ name: "", email: "", message: "" });
+            setTimeout(() => setSubmitted(false), 3000);
+        }
+    };
+
+    return (
+    <section className="w-full min-h-[80vh] flex items-center justify-center bg-white transition-colors duration-500">
+            <div className="flex flex-col md:flex-row w-full max-w-5xl mx-auto px-4 py-12 md:py-24 gap-10 md:gap-20 items-center justify-center">
+                {/* Contact Options */}
+                <div className="w-full md:w-1/3 flex flex-col items-center md:items-start text-center md:text-left animate-fadeInUp">
+                    <h2 className="text-4xl font-extrabold mb-6 text-gray-900">Get in Touch</h2>
+                    <div className="flex flex-col gap-6 w-full">
+                        <a href="mailto:syedyawaraliturab@gmail.com" className="group flex items-center gap-4 py-2 px-4 rounded-xl bg-white shadow hover:scale-105 hover:shadow-blue-400 transition-all duration-300">
+                            <MdEmail size={28} className="text-blue-500 group-hover:drop-shadow-[0_0_8px_#3b82f6]" />
+                            <span className="font-semibold text-gray-800">syedyawaraliturab@gmail.com</span>
+                        </a>
+                        <a href="tel:+923232159603" className="group flex items-center gap-4 py-2 px-4 rounded-xl bg-white shadow hover:scale-105 hover:shadow-green-400 transition-all duration-300">
+                            <FaPhone size={28} className="text-green-500 group-hover:drop-shadow-[0_0_8px_#22c55e]" />
+                            <span className="font-semibold text-gray-800">+92 323-215-9603</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/ali-turab-naqvi/" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4 py-2 px-4 rounded-xl bg-white shadow hover:scale-105 hover:shadow-blue-400 transition-all duration-300">
+                            <FaLinkedin size={28} className="text-blue-700 group-hover:drop-shadow-[0_0_8px_#2563eb]" />
+                            <span className="font-semibold text-gray-800">LinkedIn</span>
+                        </a>
+                        <a href="https://github.com/aliturab99" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4 py-2 px-4 rounded-xl bg-white shadow hover:scale-105 hover:shadow-gray-400 transition-all duration-300">
+                            <FaGithub size={28} className="text-gray-900 group-hover:drop-shadow-[0_0_8px_#6b7280]" />
+                            <span className="font-semibold text-gray-800">GitHub</span>
+                        </a>
                     </div>
                 </div>
-            </section>
-        </>
+                {/* Contact Form */}
+                <div className="w-full md:w-2/3 flex flex-col items-center animate-fadeInUp delay-150">
+                    <div className="w-full max-w-lg bg-white rounded-2xl shadow-lg p-8">
+                        <h3 className="text-2xl font-bold mb-4 text-gray-900 text-center">Send a Message</h3>
+                        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+                            <input
+                                type="text"
+                                name="name"
+                                placeholder="Name"
+                                value={form.name}
+                                onChange={handleChange}
+                                className={`px-4 py-2 rounded-lg border focus:outline-none focus:ring-2 focus:ring-blue-400 ${errors.name ? "border-red-500" : "border-gray-300"}`}
+                            />
+                            {errors.name && <span className="text-red-500 text-sm">{errors.name}</span>}
+                            <input
+                                type="email"
+                                name="email"
+                                placeholder="Email"
+                                value={form.email}
+                                onChange={handleChange}
+                                className={`px-4 py-2 rounded-lg border focus:outline-none focus:ring-2 focus:ring-blue-400 ${errors.email ? "border-red-500" : "border-gray-300"}`}
+                            />
+                            {errors.email && <span className="text-red-500 text-sm">{errors.email}</span>}
+                            <textarea
+                                name="message"
+                                placeholder="Message"
+                                value={form.message}
+                                onChange={handleChange}
+                                rows={5}
+                                className={`px-4 py-2 rounded-lg border focus:outline-none focus:ring-2 focus:ring-blue-400 ${errors.message ? "border-red-500" : "border-gray-300"}`}
+                            />
+                            {errors.message && <span className="text-red-500 text-sm">{errors.message}</span>}
+                            <button
+                                type="submit"
+                                className="mt-2 px-6 py-2 rounded-lg bg-blue-600 text-white font-bold shadow hover:scale-105 hover:shadow-blue-400 transition-all duration-300"
+                            >
+                                Send ➤
+                            </button>
+                            {submitted && <span className="text-green-500 text-sm mt-2">Message sent! Thank you.</span>}
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <style jsx global>{`
+                .animate-fadeInUp {
+                    opacity: 0;
+                    transform: translateY(40px);
+                    animation: fadeInUp 1s cubic-bezier(0.4,0,0.2,1) forwards;
+                }
+                .animate-fadeInUp.delay-150 {
+                    animation-delay: 0.15s;
+                }
+                @keyframes fadeInUp {
+                    0% { opacity: 0; transform: translateY(40px); }
+                    100% { opacity: 1; transform: translateY(0); }
+                }
+            `}</style>
+        </section>
     );
 };
 
