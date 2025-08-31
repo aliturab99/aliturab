@@ -65,7 +65,14 @@ const SkillsBall3D = () => {
       <Canvas camera={{ position: [0, 0, 7], fov: 50 }}>
         <ambientLight intensity={0.7} />
         <directionalLight position={[5, 5, 5]} intensity={0.7} />
-        <Suspense fallback={null}>
+        <Suspense fallback={
+          <Html center>
+            <div className="flex flex-col items-center justify-center">
+              <div className="w-12 h-12 border-4 border-blue-400 border-t-transparent rounded-full animate-spin mb-2"></div>
+              <span className="text-blue-500 font-semibold">Loading Skills...</span>
+            </div>
+          </Html>
+        }>
           <SkillBall />
         </Suspense>
         <OrbitControls enablePan={false} enableZoom={false} autoRotate autoRotateSpeed={2} />
