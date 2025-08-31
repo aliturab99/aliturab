@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { FiExternalLink } from "react-icons/fi";
 
@@ -54,12 +55,12 @@ const About = () => {
           >
             Resume <FiExternalLink size={20} />
           </a>
-          <a
-            href="#contact"
+          <Link
+            href="/contact"
             className="px-7 py-3 rounded-xl bg-blue-600 text-white font-bold shadow hover:bg-blue-700 text-base md:text-lg transition-all duration-200"
           >
             Contact
-          </a>
+          </Link>
         </motion.div>
       </div>
     </section>
